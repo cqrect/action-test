@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to review
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Run AI Reviewer
         id: reviewer
-        uses: cqrect/ai-reviewer@v0.0.2
+        uses: cqrect/ai-reviewer@v0.0.4
         with:
           base-url: https://ark.cn-beijing.volces.com/api/v3
           model-name: ep-20250214142503-7c4q8
