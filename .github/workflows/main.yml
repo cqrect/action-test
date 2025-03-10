@@ -13,4 +13,4 @@ jobs:
           model-name: ep-20250214142503-7c4q8
           api-key: ${{ secrets.OPENAI_API_KEY }}
       - name: Print AI Answer
-        run: echo "AI Answer: ${{ steps.reviewer.outputs.answer }}"
+        run: echo "AI Answer ${{ steps.reviewer.outputs.answer }}"
