@@ -1,14 +1,16 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  review:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to review
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: cqrect/action@v1
+      - name: Run AI Reviewer
+        id: reviewer
+        uses: cqrect/ai-reviewer@v0.0.1
         with:
-          who-to-greet: 'Mona the Octocat'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          base-url: https://ark.cn-beijing.volces.com/api/v3
+          model-name: ep-20250214142503-7c4q8
+          api-key: ${{ secrets.OPENAI_API_KEY }}
+      - name: Print AI Answer
+        run: echo "AI Answer: ${{ steps.reviewer.outputs.answer }}"
