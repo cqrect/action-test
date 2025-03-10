@@ -16,7 +16,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Run AI Reviewer
         id: reviewer
-        uses: cqrect/ai-reviewer@v0.0.5
+        uses: cqrect/ai-reviewer@v0.0.7
         with:
           base-url: https://ark.cn-beijing.volces.com/api/v3
           model-name: ep-20250214142503-7c4q8
