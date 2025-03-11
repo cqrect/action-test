@@ -1,29 +1,19 @@
+name: AI PR Review
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, synchronize, reopened]
 
 jobs:
   review:
     runs-on: ubuntu-latest
-    name: A job to review
-    permissions:
-      pull-requests: write
-      contents: read
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+
       - name: Run AI Reviewer
-        id: reviewer
-        uses: cqrect/ai-reviewer@v0.0.8
+        uses: cqrect/au-reviewer@v0.0.2
         with:
-          base-url: https://ark.cn-beijing.volces.com/api/v3
-          model-name: ep-20250214142503-7c4q8
-          api-key: ${{ secrets.OPENAI_API_KEY }}
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          message: |
-            ${{ steps.reviewer.outputs.answer }}
-          github-token: ${{ secrets.RELEASE_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
+          repo_owner: ${{ github.repository_owner }}
+          repo_name: ${{ github.event.repository.name }}
+          pr_number: ${{ github.event.pull_request.number }}
