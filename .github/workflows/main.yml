@@ -1,7 +1,7 @@
 name: AI Code Review
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
@@ -14,5 +14,5 @@ jobs:
           pr_number: ${{ github.event.pull_request.number }}
           github_token: ${{ secrets.GH_TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          openai_base_url: ${{ secrets.OPENAI_BASE_URL }}
-          model_name: ${{ secrets.MODEL_NAME }}
+          openai_base_url: 'https://api.openai.com/v1'
+          model_name: 'gpt-4'
