@@ -5,4 +5,4 @@ exclude:
   - '**/testdata/**'
   - '**/*_test.go'
   - '**/vendor/**'
-  - 'exclude'
+  - 'exclude/**'
