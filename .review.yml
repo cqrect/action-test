@@ -1,6 +1,9 @@
 prompt: |
   你所有的回答要用中文描述
 
+summary: |
+  你的回答要用中文
+
 exclude:
   - '**/testdata/**'
   - '**/*_test.go'
