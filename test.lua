@@ -1,0 +1,1 @@
+local a = reuire('a')
