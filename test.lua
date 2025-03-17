@@ -1,1 +1,1 @@
-local a = reuire('a')
+local a = require('a')
