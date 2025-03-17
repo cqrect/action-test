@@ -1,5 +1,8 @@
 prompt: |
-  你是一个资深的开发者
+  你所有的回答要用中文描述
+
+summary: |
+  你的回答要用中文
 
 exclude:
   - '**/testdata/**'
